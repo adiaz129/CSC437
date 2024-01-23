@@ -1,8 +1,29 @@
-head {
-    color: #e5cb6f
+header {
+    background-color: #2B2B28;
+    color: #f7db75;
+    font-size: 24px;
+    font-style: bold;
+    text-align: center;
 }
 
 body {
-    background-color: #6f6f6f;
-    color:#e5cb6f
+    background-color: #F8F3E0;
+    color:#2B2B28;
+
+}
+
+h3 {
+    text-align: center;
+}
+
+.instrument-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+
+.instrument-items {
+    width: 200px;
+    margin: 5px;
 }
