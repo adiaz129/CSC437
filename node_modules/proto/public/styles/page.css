@@ -1,5 +1,5 @@
 header {
-    background-color: #2B2B28;
+    background-color: #171209;
     color: #f7db75;
     font-size: 24px;
     font-style: bold;
@@ -7,23 +7,12 @@ header {
 }
 
 body {
-    background-color: #F8F3E0;
-    color:#2B2B28;
+    background-color: #eee5d4;
+    color:#3a2e17;
 
 }
 
-h3 {
-    text-align: center;
-}
-
-.instrument-container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-}
-
-
-.instrument-items {
-    width: 200px;
-    margin: 5px;
+h2 {
+    color: #171209;
+    font-style: bold;
 }
