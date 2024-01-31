@@ -1,9 +1,29 @@
 h1 {
-    background-color: #171209;
-    color: #f7db75;
     font-family: 'Playfair Display', serif;
     font-size: 3em;
     text-align: center;
+    padding-right: 1rem;
+    line-height: 1;
+}
+
+header {
+    background-color: #171209;
+    color: #f7db75;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+header h2 {
+    color: #f7db75;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 1;
 }
 
 body {
@@ -17,12 +37,23 @@ h2 {
     color: #171209;
     font-family: 'Playfair Display', serif;
     font-size: 2em;
+    text-align: center;
+}
+p {
+    text-align: center;
 }
 
 svg.icon {
     display: inline;
     height: 3em;
     width: 3em;
-    vertical-align: top;
+    vertical-align: baseline;
     fill: currentColor;
-  }
+}
+
+svg.icon-search {
+    display: inline;
+    height: 3em;
+    vertical-align: baseline;
+    fill: currentColor;
+}
