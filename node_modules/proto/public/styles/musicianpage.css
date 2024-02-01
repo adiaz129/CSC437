@@ -10,12 +10,12 @@
     margin: 10px;
     border: 1px solid currentColor;
     border-radius: 5px;
-    padding: 5px;
 }
 
-.song-items > a >div {
+.song-items > a > div {
     text-align: center;
 }
-.song-items > a > li {
-    padding-left: 1em;
+.song-items p {
+    text-align: left;
+    padding-left: 5em;
 }
