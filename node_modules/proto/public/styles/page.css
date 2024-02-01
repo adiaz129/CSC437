@@ -1,14 +1,14 @@
 h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3em;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-x-large);
     text-align: center;
     padding-right: 1rem;
     line-height: 1;
 }
 
 header {
-    background-color: #171209;
-    color: #f7db75;
+    background-color: var(--color-background-header);
+    color: var(--color-text-heading);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -17,9 +17,9 @@ header {
 }
 
 header h2 {
-    color: #f7db75;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5em;
+    color: var(--color-text-heading);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-medium);
     text-align: center;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -27,16 +27,16 @@ header h2 {
 }
 
 body {
-    background-color: #eee5d4;
-    color:#3a2e17;
-    font-family: 'PT Serif', serif;
-    font-size: 16px;
+    background-color: var(--color-background-page);
+    color: var(--color-text);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body);
 }
 
 h2 {
-    color: #171209;
-    font-family: 'Playfair Display', serif;
-    font-size: 2em;
+    color: var(--color-text-headers);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-large);
     text-align: center;
 }
 p {
@@ -45,15 +45,15 @@ p {
 
 svg.icon {
     display: inline;
-    height: 3em;
-    width: 3em;
+    height: var(--icon-size);
+    width: var(--icon-size);
     vertical-align: baseline;
     fill: currentColor;
 }
 
 svg.icon-search {
     display: inline;
-    height: 3em;
+    height: var(--icon-size);
     vertical-align: baseline;
     fill: currentColor;
 }

@@ -12,5 +12,5 @@
     border: 1px solid currentColor;
     border-radius: 5px;
     padding: 5px;
-    background-color: #ffffff;
+    background-color: var(--color-box-background);
 }
