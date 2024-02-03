@@ -1,0 +1,18 @@
+:root {
+    --font-family-body: 'PT Serif', serif;
+    --font-family-display: 'Playfair Display', serif;
+
+    --color-background-header: #171209;
+    --color-background-page: #eee5d4;
+    --color-text: #3a2e17;
+    --color-text-heading: #f7db75;
+    --color-text-headers: #171209;
+    --color-box-background: #ffffff;
+
+    --font-size-body: 16px;
+    --font-size-x-large: 3em;
+    --font-size-large: 2em;
+    --font-size-medium: 1.5em;
+
+    --icon-size: 3em;
+}

@@ -1,0 +1,21 @@
+.song-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding-left: 5em;
+}
+
+.song-items {
+    width: 300px;
+    margin: 10px;
+    border: 1px solid currentColor;
+    border-radius: 5px;
+}
+
+.song-items > a > div {
+    text-align: center;
+}
+.song-items p {
+    text-align: left;
+    padding-left: 5em;
+}
