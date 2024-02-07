@@ -45,7 +45,7 @@ export class ToggleSwitchElement extends LitElement {
     input {
       appearance: none;
       cursor: pointer;
-      background-color: var(--color-text);
+      background-color: var(--color-box-text);
       border-radius: 50%;
       width: 1.25em;
       height: 1.25em;

@@ -19,7 +19,6 @@ export class UserPanelElement extends LitElement {
                     Dark Mode
                 </toggle-switch>
             </li>
-            <li><hr /></li>
             <li>
                 <slot name="logout">Sign out</slot>
             </li>
