@@ -13,6 +13,7 @@
     padding: 5px;
     background-color: var(--color-box-background);
     padding-bottom: 1em;
+    color: var(--color-box-text);
 }
 
 .song-items > a > div {

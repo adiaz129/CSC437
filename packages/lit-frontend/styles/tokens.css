@@ -5,10 +5,12 @@
     --color-background-header: #171209;
     --color-background-page: #eee5d4;
     --color-text: #3a2e17;
+    --color-box-text: #3a2e17;
     --color-text-heading: #f7db75;
     --color-text-headers: #171209;
     --color-box-background: #ffffff;
     --color-text-link: rgb(6, 115, 169); 
+    --color-accent: #f7db75;
 
     --font-size-body: 16px;
     --font-size-x-large: 3em;
@@ -22,9 +24,12 @@
     
 }
 body.dark-mode {
-    --color-background-page: rgb(16, 16, 15);
-    --color-text: rgb(240, 240, 223);
-    --color-background-card: black;
+    --color-background-page: #171209;
+    --color-text: #eee5d4;
+    --color-box-text: #3a2e17;
+    --color-background-header: #171209;
+    --color-text-headers: #f7db75;
+    --color-box-background: #eee5d4;
     --color-accent: var(--color-accent-inverted);
     --color-text-control: rgb(51 51 51);
     --color-text-control-inverted: var(--color-background-page);

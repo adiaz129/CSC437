@@ -69,14 +69,4 @@ export class ToggleSwitchElement extends LitElement {
     this.on = target?.checked;
     this.dispatchEvent(composedEvent);
   }
-
-  _toggleDarkMode(ev: InputEvent) {
-    const target = ev.target as ToggleSwitchElement;
-    const body = document.body;
-
-    console.log("Toggling Dark mode", ev);
-
-    if (target?.on) body.classList.add("dark-mode");
-    else body.classList.remove("dark-mode");
-  }
 }

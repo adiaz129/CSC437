@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="/styles/page.css" />
         <link rel="stylesheet" href="/styles/home.css" />
         <link rel="stylesheet" href="/styles/tokens.css" />
+        <script type="module" src="/src/user-panel.ts"></script>
         <script type="module" src="/src/drop-down.ts"></script>
         <script type="module" src="/src/toggle-switch.ts"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,22 +26,9 @@
                 <svg class="icon">
                     <use href="/icons/placeholder.svg#icon-profile" />
                 </svg>
-                <ul slot="menu">
-                    <li class="header">
-                        <a href="profile.html">
-                            <slot name="name">Your Name</slot>
-                        </a>
-                    </li>
-                    <li>
-                        <toggle-switch @change=${this._toggleDarkMode}>
-                            Dark Mode
-                        </toggle-switch>
-                    </li>
-                    <li><hr /></li>
-                    <li>
-                        <slot name="logout">Sign out</slot>
-                    </li>
-                </ul>
+                <user-panel slot="menu">
+                    <span slot="name">Andrew Diaz</span>
+                </user-panel>
             </drop-down>
         </header>
         <main>
@@ -72,6 +60,19 @@
                                 <use href="/icons/instruments.svg#icon-violin" />
                             </svg>
                             <img src="/images/violin.jpg" width="200"/>
+                        </a>
+                    </section>
+                </div>
+            </article>
+            <article>
+                <h2>Musicians</h2>
+                <div class="musician-container">
+                    <section class="musician-items">
+                        <a href="musician.html">
+                            <h3 class="text">Kooldude47</h3>
+                            <svg class="icon">
+                                <use href="/icons/placeholder.svg#icon-profile" />
+                            </svg>
                         </a>
                     </section>
                 </div>
