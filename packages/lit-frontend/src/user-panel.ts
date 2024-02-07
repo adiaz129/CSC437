@@ -1,10 +1,9 @@
 import { css, html, LitElement } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement} from "lit/decorators.js";
 import { ToggleSwitchElement } from "./toggle-switch";
 
 @customElement("user-panel")
 export class UserPanelElement extends LitElement {
-
 
   render() {
     return html`
@@ -58,10 +57,6 @@ export class UserPanelElement extends LitElement {
     }
     li:last-child {
       border-top-style: solid;
-    }
-    img {
-      display: inline;
-      height: var(--size-icon-large);
     }
     h1 {
       font-size: var(--size-type-mlarge);

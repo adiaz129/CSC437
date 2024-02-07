@@ -61,3 +61,9 @@ svg.icon-search {
     vertical-align: baseline;
     fill: currentColor;
 }
+
+.profile-header {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    border-radius: 50%;
+}
