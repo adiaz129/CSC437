@@ -1,6 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement} from "lit/decorators.js";
 import { ToggleSwitchElement } from "./toggle-switch";
+import { PresetButtonsElement } from "./preset-buttons";
 
 @customElement("user-panel")
 export class UserPanelElement extends LitElement {
@@ -17,6 +18,15 @@ export class UserPanelElement extends LitElement {
                 <toggle-switch @change=${this._toggleDarkMode}>
                     Dark Mode
                 </toggle-switch>
+            </li>
+            <li>
+                <preset-buttons
+                  name="font-size"
+                  .options=${[12, 14, 16, 20, 24]}
+                  value="16"
+                  @change=${this._selectFontSize}>
+                    Font Size
+                </preset-buttons>
             </li>
             <li>
                 <slot name="logout">Sign out</slot>
@@ -52,11 +62,8 @@ export class UserPanelElement extends LitElement {
       align-items: end;
       line-height: var(--font-line-height-display);
     }
-    li:first-child {
+    li {
       border-bottom-style: solid;
-    }
-    li:last-child {
-      border-top-style: solid;
     }
     h1 {
       font-size: var(--size-type-mlarge);
@@ -78,5 +85,19 @@ export class UserPanelElement extends LitElement {
 
     if (target?.on) body.classList.add("dark-mode");
     else body.classList.remove("dark-mode");
+  }
+
+  _selectFontSize(ev: InputEvent) {
+    const target = ev.target as PresetButtonsElement;
+    const body = document.body;
+
+    console.log("Selecting Font Size", ev);
+
+    if (target) {
+      const fontSize = target.value
+        ? target.value.toString() + "px"
+        : "initial";
+      body.style.fontSize = fontSize;
+    }
   }
 }
