@@ -5,34 +5,48 @@
         <link rel="stylesheet" href="/styles/page.css" />
         <link rel="stylesheet" href="/styles/home.css" />
         <link rel="stylesheet" href="/styles/tokens.css" />
+        <script type="module" src="/src/drop-down.ts"></script>
+        <script type="module" src="/src/user-panel.ts"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">    
     </head>
     <body>
         <header>
-            <a href="/">
+            <a href="/app/">
                 <h1>Sheet Share</h1>
             </a>
             <svg class="icon-search">
-                <use href="icons/placeholder.svg#icon-search" />
+                <use href="/icons/placeholder.svg#icon-search" />
             </svg>
             <h2 class="home">Home</h2>
             <h2 class="login">Login | Sign up</h2>
-            <svg class="icon">
-                <use href="icons/placeholder.svg#icon-profile" />
-            </svg>
+            <drop-down align="right">
+                <svg class="icon">
+                    <use href="/icons/placeholder.svg#icon-profile" />
+                </svg>
+                <ul slot="menu">
+                    <li class="header">
+                        <a href="profile.html">
+                            <slot name="name">Your Name</slot>
+                        </a>
+                    </li>
+                    <li><hr /></li>
+                    <li>
+                        <slot name="logout">Sign out&hellip;</slot>
+                    </li>
+                </ul>
+            </drop-down>
         </header>
         <main>
             <article>
                 <h2>Instruments</h2>
-                <p>Pick an instrument</p>
                 <div class="instrument-container">
                     <section class="instrument-items">
                         <a href="guitar.html">
                             <h3 class="text">Guitar</h3>
                             <svg class="icon">
-                                <use href="icons/instruments.svg#icon-guitar" />
+                                <use href="/icons/instruments.svg#icon-guitar" />
                             </svg>
                             <img src="/images/guitar.jpg" width="200"/>
                         </a>
@@ -41,7 +55,7 @@
                         <a href="piano.html">
                             <h3>Piano</h3>
                             <svg class="icon">
-                                <use href="icons/instruments.svg#icon-piano" />
+                                <use href="/icons/instruments.svg#icon-piano" />
                             </svg>
                             <img src="/images/piano.jpg" width="200"/>
                         </a> 
@@ -50,7 +64,7 @@
                         <a href="violin.html">
                             <h3>Violin</h3>
                             <svg class="icon">
-                                <use href="icons/instruments.svg#icon-violin" />
+                                <use href="/icons/instruments.svg#icon-violin" />
                             </svg>
                             <img src="/images/violin.jpg" width="200"/>
                         </a>

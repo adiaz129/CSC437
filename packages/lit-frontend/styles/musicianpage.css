@@ -2,7 +2,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    padding-left: 5em;
+    padding-left: 86px;
 }
 
 .song-items {
@@ -10,12 +10,30 @@
     margin: 10px;
     border: 1px solid currentColor;
     border-radius: 5px;
+    background-color: var(--color-box-background);
+    padding-bottom: 1em;
 }
 
 .song-items > a > div {
     text-align: center;
+    padding-bottom: .5em;
 }
 .song-items p {
     text-align: left;
-    padding-left: 5em;
+    padding-left: 3em;
+}
+
+article > h2 {
+    text-align: center;
+    padding-left: 0em;
+}
+
+.song-items h3 {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+article > p {
+    text-align: center;
+    padding-left: 0em;
 }
