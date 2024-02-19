@@ -14,7 +14,7 @@ export class UserProfileElement extends LitElement {
     profile?: Profile;
 
     render() {
-        const {userid, name, date_joined, instruments} = (this.profile || {}) as Profile;
+        const {userid, name, date_joined, instruments, avatar_image} = (this.profile || {}) as Profile;
 
         let instrumentList: string = "Instruments: " + instruments?.join(", ");
 
@@ -22,7 +22,7 @@ export class UserProfileElement extends LitElement {
         <article>
             <h2>${userid}</h2>
             <div class="profile-container">
-                <img src="/images/kooldude.jpg" class="profile">
+                <img src=${avatar_image} class="profile">
             </div>
             <p>Name: ${name}</p>
             <p>${instrumentList}</p>
@@ -159,40 +159,66 @@ export class UserProfileElement extends LitElement {
 export class UserProfileEditElement extends UserProfileElement {
     render() {
 
-        const profile = (this.profile || {}) as Profile;
-        const {
-        userid,
-        name,
-        date_joined,
-        instruments
-        } = profile;
+        const {userid, name, date_joined, instruments, avatar_image} = (this.profile || {}) as Profile;
 
         console.log("Rendering form", this.profile);
 
         return html`
-        <h2>${userid}</h2>
-        <p>Name: ${name}</p>
-        <p>${instruments}</p>
-        <p>Date Joined: ${date_joined}</p>
+        <h2 class="edit">Edit Profile</h2>
         <form @submit=${this._handleSubmit}>
-            <label for="fname">First name:</label><br>
-            <input type="text" id="name" name="name" value=${name}><br>
-            <label for="cars">Choose a car:</label>
-            <select id="cars" name="cars" size="4" multiple>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="fiat">Fiat</option>
-                <option value="audi">Audi</option>
-            </select><br><br>
-            <button type="submit">Submit</button>
+            <label>
+                <span>Username: </span>
+                <input name="userid" value="${userid}" />
+            </label><br>
+            <label>
+                <span>Name: </span>
+                <input name="name" value="${name}" />
+            </label><br>
+            <label>
+                <span>Image: </span>
+                <input name="avatar_image" value="${avatar_image}" />
+            </label><br>
+            <label>
+                <span>Instruments: </span>
+                <input name="instruments" .value=${instruments?.join(", ")} />
+            </label>
+            <div>
+                <button type="submit">Submit</button>
+            <div>
         </form> `;
     }
 
     static styles = [...UserProfileElement.styles, 
         css`
-        label {
-            margin: 0,
-        }`];
+        .edit {
+            text-align: center;
+            padding-left: 0em;
+        }
+        form {
+            display: flex;
+            flex-flow: column;
+          }
+          label {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 40%;
+            margin-right: 40%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+          }
+          button {
+            grid-column: value;
+            width: 10em;
+          }
+          div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+          }
+          input {
+            font: inherit;
+          }`];
 
     _handleSubmit(ev: Event) {
         ev.preventDefault(); // prevent browser from submitting form data itself
@@ -202,7 +228,7 @@ export class UserProfileEditElement extends UserProfileElement {
         const entries = Array.from(formdata.entries())
             .map(([k, v]) => (v === "" ? [k] : [k, v]))
             .map(([k, v]) =>
-            k === "airports"
+            k === "instruments"
                 ? [k, (v as string).split(",").map((s) => s.trim())]
                 : [k, v]
             );

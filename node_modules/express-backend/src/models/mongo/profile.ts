@@ -7,6 +7,7 @@ const profileSchema = new Schema<Profile>(
     name: { type: String, required: true, trim: true },
     date_joined: { type: String, required: true, trim: true },
     instruments: [String],
+    avatar_image: { type: String, required: false, trim: true },
   },
   { collection: "user_profiles" }
 );
