@@ -10,4 +10,4 @@ export default [
         path: "/app",
         component: "landing-page"
     }
-]
+];

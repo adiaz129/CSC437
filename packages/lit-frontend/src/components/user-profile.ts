@@ -4,6 +4,7 @@ import { Profile } from "express-backend/src/models/profile";
 import { serverPath } from "./rest";
 import resetCSS from "../styles/reset.css?inline";
 import pageCSS from "../styles/page.css?inline";
+import "./song-container"
 
 @customElement("user-profile")
 export class UserProfileElement extends LitElement {
@@ -32,32 +33,7 @@ export class UserProfileElement extends LitElement {
             </section>
             <section class="favorites">
                 <h2>Favorites</h2>
-                <div class="song-container">
-                    <section class="song-items">
-                        <song-box
-                        link="fromthestart.html"
-                        image="/images/fromthestart.jpeg"
-                        description="Laufey, Kooldude47, Jan 17 2024, Intermediate, Guitar">
-                            <span slot="song-name">From the Start</span>
-                        </song-box>
-                    </section>
-                    <section class="song-items">
-                        <song-box
-                        link="furelise.html"
-                        image="/images/furelise.png"
-                        description="Beethoven, Kooldude47, Aug 1 2023, Intermediate, Piano">
-                            <span slot="song-name">Fur Elise</span>
-                        </song-box>
-                    </section>
-                    <section class="song-items">
-                        <song-box
-                        link="riverflowsinyou.html"
-                        image="/images/riverflowsinyou.png"
-                        description="Yiruma, Kooldude47, Feb 12 2023, Easy, Violin">
-                            <span slot="song-name">River Flows in You</span>
-                        </song-box>
-                    </section>
-                </div>
+                <song-container></song-container>   
             </section>
         </article>
         `;
@@ -67,40 +43,10 @@ export class UserProfileElement extends LitElement {
         unsafeCSS(resetCSS),
         unsafeCSS(pageCSS),
         css`
-        .song-container {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: flex-start;
-            padding-left: 86px;
-        }
-
-        .song-items {
-            width: 300px;
-            margin: 10px;
-            border: 1px solid currentColor;
-            border-radius: 5px;
-            background-color: var(--color-box-background);
-            padding-bottom: 1em;
-            color: var(--color-box-text);
-        }
-
-        .song-items > a > div {
-            text-align: center;
-            padding-bottom: .5em;
-        }
-        .song-items p {
-            text-align: left;
-            padding-left: 3em;
-        }
 
         article > h2 {
             text-align: center;
             padding-left: 0em;
-        }
-
-        .song-items h3 {
-            padding-top: .5em;
-            padding-bottom: .5em;
         }
 
         article > p {

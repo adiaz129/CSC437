@@ -12,7 +12,7 @@ export class UserPanelElement extends LitElement {
     return html`
         <ul>
             <li class="header">
-                <a href="profile.html">
+                <a href="/app/profile">
                     <slot name="name">Your Name</slot>
                 </a>
             </li>
