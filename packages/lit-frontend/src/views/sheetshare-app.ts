@@ -14,7 +14,7 @@ export class SheetShareAppElement extends LitElement {
     render() {
         return html`
         <app-header></app-header>
-        <vaadin-router .routes=${routes}/src</vaadin-router>
+        <vaadin-router .routes=${routes}> </vaadin-router>
     `;
     }
 

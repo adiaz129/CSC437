@@ -1,6 +1,6 @@
 import { css, html, LitElement, unsafeCSS } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
-import { Profile } from "express-backend/src/models/profile";
+import { Profile } from "ts-models";
 import { serverPath } from "./rest";
 import resetCSS from "/src/styles/reset.css?inline";
 import pageCSS from "/src/styles/page.css?inline";
@@ -52,7 +52,7 @@ export class UserProfileElement extends LitElement {
         article > p {
             text-align: center;
             padding-left: 0em;
-    /src
+        }
 
         .profile-container {
             display: flex;
