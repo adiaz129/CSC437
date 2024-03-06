@@ -2,8 +2,8 @@ import { css, html, LitElement, unsafeCSS } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import { Profile } from "express-backend/src/models/profile";
 import { serverPath } from "./rest";
-import resetCSS from "../styles/reset.css?inline";
-import pageCSS from "../styles/page.css?inline";
+import resetCSS from "/src/styles/reset.css?inline";
+import pageCSS from "/src/styles/page.css?inline";
 import "./song-container"
 
 @customElement("user-profile")
@@ -52,7 +52,7 @@ export class UserProfileElement extends LitElement {
         article > p {
             text-align: center;
             padding-left: 0em;
-        }
+    /src
 
         .profile-container {
             display: flex;
@@ -105,7 +105,7 @@ export class UserProfileElement extends LitElement {
 export class UserProfileEditElement extends UserProfileElement {
     render() {
 
-        const {userid, name, date_joined, instruments, avatar_image} = (this.profile || {}) as Profile;
+        const {userid, name, instruments, avatar_image} = (this.profile || {}) as Profile;
 
         console.log("Rendering form", this.profile);
 

@@ -1,8 +1,8 @@
 import { html, LitElement, unsafeCSS } from "lit";
 import { customElement } from "lit/decorators.js";
-import resetCSS from "../styles/reset.css?inline";
-import pageCSS from "../styles/page.css?inline";
-import musicianPageCSS from "../styles/musicianpage.css?inline";
+import resetCSS from "/src/styles/reset.css?inline";
+import pageCSS from "/src/styles/page.css?inline";
+import musicianPageCSS from "/src/styles/musicianpage.css?inline";
 import "./song-box";
 
 @customElement("song-container")
