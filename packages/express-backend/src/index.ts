@@ -3,6 +3,8 @@ import * as path from "path";
 import { PathLike } from "node:fs";
 import cors from "cors";
 import { connect } from "./mongoConnect";
+import { loginUser, registerUser } from "./auth";
+import apiRouter from "./routes/api";
 import profiles from "./profiles";
 import { Profile } from "ts-models";
 
@@ -27,6 +29,11 @@ try {
   dist = path.resolve(cwd, "..", frontend, "dist");
   indexHtml = path.resolve(dist, "index.html");
 }
+
+app.post("/login", loginUser);
+app.post("/signup", registerUser);
+
+app.use("/api", apiRouter);
 
 app.get("/hello", (req: Request, res: Response) => {
     res.send("Hello, World");
