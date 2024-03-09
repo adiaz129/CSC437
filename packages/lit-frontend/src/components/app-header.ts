@@ -1,5 +1,8 @@
 import { html, LitElement, unsafeCSS } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
+import { consume } from "@lit/context";
+import { APIUser, APIRequest } from "../rest";
+import { authContext } from "./auth-required";
 import resetCSS from "/src/styles/reset.css?inline";
 import pageCSS from "/src/styles/page.css?inline";
 import "./drop-down";
@@ -7,6 +10,13 @@ import "./user-panel";
 
 @customElement("app-header")
 export class UserProfileElement extends LitElement {
+
+    @consume({ context: authContext, subscribe: true })
+    @property({ attribute: false })
+    user = new APIUser();
+
+    
+
     render() {
         return html`
         <header>
@@ -23,7 +33,11 @@ export class UserProfileElement extends LitElement {
                 <user-panel slot="menu">
                     <span slot="name">Andrew Diaz</span>
                 </user-panel>
+                
             </drop-down>
+            <button slot="logout" @click=${this._signOut}>
+                Log out...
+              </button>
         </header>
         `;  
     }
@@ -32,4 +46,9 @@ export class UserProfileElement extends LitElement {
         unsafeCSS(resetCSS),
         unsafeCSS(pageCSS)
     ]
+
+    _signOut() {
+        console.log("Signout");
+        this.user.signOut();
+      }
 }

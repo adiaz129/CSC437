@@ -27,6 +27,7 @@ function registerUser(req, res) {
             .create(username, pwd)
             .then((creds) => generateAccessToken(creds.username))
             .then((token) => {
+            console.log(token);
             res.status(201).send({ token: token });
         });
     }

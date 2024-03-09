@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
 import credentials from "./services/credentials";
+import { Request, Response } from "express";
 
-function generateAccessToken(username: string): Promise<string> {
+function generateAccessToken(username: string) {
   console.log("Generating token for", username);
   return new Promise((resolve, reject) => {
     jwt.sign(
@@ -10,13 +11,13 @@ function generateAccessToken(username: string): Promise<string> {
       { expiresIn: "1d" },
       (error, token) => {
         if (error) reject(error);
-        else resolve(token as string);
+        else resolve(token);
       }
     );
   });
 }
 
-export function registerUser(req: any, res: any) {
+export function registerUser(req: Request, res: Response) {
   const { username, pwd } = req.body; // from form
 
   if (!username || !pwd) {
@@ -26,6 +27,7 @@ export function registerUser(req: any, res: any) {
       .create(username, pwd)
       .then((creds) => generateAccessToken(creds.username))
       .then((token) => {
+        console.log(token)
         res.status(201).send({ token: token });
       });
   }

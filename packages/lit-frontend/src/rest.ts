@@ -128,7 +128,7 @@ export class JSONRequest {
   }
 
   _url(path: string) {
-    return `${SERVER_ROOT}${path}`;
+    return `${SERVER_ROOT}${this._base}${path}`;
   }
 }
 

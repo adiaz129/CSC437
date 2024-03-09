@@ -38,7 +38,7 @@ export class AuthRequiredElement extends LitElement {
   }
 
   render() {
-    //console.log("Rendering auth-required", this.user);
+    console.log("Rendering auth-required", this.user);
 
     const dialog = html`
       <dialog>
@@ -131,7 +131,7 @@ export class AuthRequiredElement extends LitElement {
       .base()
       .post("/login")
       .then((res) => {
-        if (res.status === 200) {
+        if (res.ok) {
           return res.json();
         } else {
           this.loginStatus = res.status;
@@ -174,14 +174,19 @@ export class AuthRequiredElement extends LitElement {
       .base()
       .post("/signup")
       .then((res) => {
-        if (res.status === 200) {
+        if (res.ok) {
+          console.log("reg success");
           return res.json();
         } else {
+          console.log("reg failed");
+          console.log("res.status: ", res.status)
+          console.log("res: ", res)
           this.registerStatus = res.status;
         }
       })
       .then((json) => {
         console.log("Registration:", json);
+        console.log("Rendering auth-required", this.user);
       });
   }
 
