@@ -1,8 +1,10 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { Song } from "ts-models";
 
 @customElement("song-box")
 export class SongBoxElement extends LitElement {
+
     @property()
     link: string = "";
 
@@ -14,7 +16,6 @@ export class SongBoxElement extends LitElement {
 
     render() {
         const descriptionArray = this.description.split(',');
-
         return html`
         <a href="${this.link}">
         <div>

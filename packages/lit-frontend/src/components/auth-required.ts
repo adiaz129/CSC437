@@ -196,7 +196,6 @@ export class AuthRequiredElement extends LitElement {
     const selectedInstruments = Array.from(selectedCheckboxes).map((checkbox) => {
         return checkbox.value;
     });
-
     // Serialize the array of selected instruments
     const serializedInstruments = JSON.stringify(selectedInstruments);
     

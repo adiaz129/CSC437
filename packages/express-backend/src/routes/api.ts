@@ -1,6 +1,7 @@
 import express from "express";
 import { authenticateUser } from "../auth";
 import profileRouter from "./profiles";
+import songRouter from "./songs";
 
 const router = express.Router();
 
@@ -8,5 +9,6 @@ const router = express.Router();
 // router.use(authenticateUser);
 
 router.use("/profiles", profileRouter);
+router.use("/song", songRouter);
 
 export default router;

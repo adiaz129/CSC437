@@ -1,10 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { consume } from "@lit/context";
 import { ToggleSwitchElement } from "./toggle-switch";
-import { authContext } from "./auth-required";
 import { PresetButtonsElement } from "./preset-buttons";
-import { APIUser, APIRequest } from "../rest";
 import "./toggle-switch";
 import "./preset-buttons";
 
@@ -13,13 +10,16 @@ export class UserPanelElement extends LitElement {
 
   _handleSignOut() {
     this.dispatchEvent(new CustomEvent('signOut'));
+
   }
+
+  @property() username: string = 'unnamed';
 
   render() {
     return html`
         <ul>
             <li class="header">
-                <a href="/app/profile">
+                <a href="/app/profile/${this.username}">
                     <slot name="name">Your Name</slot>
                 </a>
             </li>
