@@ -20,7 +20,7 @@ export class UserProfileElement extends LitElement {
     render() {
         return html`
         <header>
-            <a href="/app/">
+            <a href="/app">
                 <h1>Sheet Share</h1>
             </a>
             <svg class="icon-search">
@@ -30,14 +30,11 @@ export class UserProfileElement extends LitElement {
             <h2 class="login">Login | Sign up</h2>
             <drop-down align="right">
                 <img src="/images/profile.jpg" class="profile-header"/>
-                <user-panel slot="menu">
-                    <span slot="name">Andrew Diaz</span>
+                <user-panel slot="menu" @signOut=${this._signOut}>
+                    <span slot="name">${this.user.username}</span>
                 </user-panel>
                 
             </drop-down>
-            <button slot="logout" @click=${this._signOut}>
-                Log out...
-              </button>
         </header>
         `;  
     }

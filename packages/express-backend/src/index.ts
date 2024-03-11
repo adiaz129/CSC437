@@ -39,34 +39,6 @@ app.get("/hello", (req: Request, res: Response) => {
     res.send("Hello, World");
 });
 
-app.get("/api/profiles/:userid", (req: Request, res: Response) => {
-  const { userid } = req.params;
-
-  profiles
-    .get(userid)
-    .then((profile: Profile) => res.json(profile))
-    .catch((err) => res.status(404).end());
-});
-
-app.post("/api/profiles", (req: Request, res: Response) => {
-  const newProfile = req.body;
-
-  profiles
-    .create(newProfile)
-    .then((profile: Profile) => res.status(201).send(profile))
-    .catch((err) => res.status(500).send(err));
-});
-
-app.put("/api/profiles/:userid", (req: Request, res: Response) => {
-  const { userid } = req.params;
-  const newProfile = req.body;
-
-  profiles
-    .update(userid, newProfile)
-    .then((profile: Profile) => res.json(profile))
-    .catch((err) => res.status(404).end());
-});
-
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });

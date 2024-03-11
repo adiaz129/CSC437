@@ -8,11 +8,14 @@ import "./song-container"
 
 @customElement("user-profile")
 export class UserProfileElement extends LitElement {
-    @property()
-    path: string = "";
+    @property({ attribute: false })
+    using?: Profile;
 
-    @state()
-    profile?: Profile;
+    get profile() {
+        return this.using || ({} as Profile);
+    }
+    @property()
+    path: string = "/profiles";
 
     render() {
         const {userid, name, date_joined, instruments, avatar_image} = (this.profile || {}) as Profile;
@@ -78,7 +81,7 @@ export class UserProfileElement extends LitElement {
             return null;
         })
         .then((json: unknown) => {
-            if (json) this.profile = json as Profile;
+            if (json) this.using = json as Profile;
         });
     }
 
@@ -184,7 +187,8 @@ export class UserProfileEditElement extends UserProfileElement {
     }
 
     _putData(json: Profile) {
-    fetch(serverPath(this.path), {
+    const endpoint = `${this.path}/${this.profile.userid}`
+    fetch(serverPath(endpoint), {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(json)
@@ -194,7 +198,7 @@ export class UserProfileEditElement extends UserProfileElement {
         else return null;
         })
         .then((json: unknown) => {
-        if (json) this.profile = json as Profile;
+        if (json) this.using = json as Profile;
         })
         .catch((err) =>
         console.log("Failed to PUT form data", err)
