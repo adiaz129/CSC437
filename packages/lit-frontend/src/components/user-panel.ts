@@ -1,5 +1,5 @@
 import { css, html, LitElement } from "lit";
-import { customElement} from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import { ToggleSwitchElement } from "./toggle-switch";
 import { PresetButtonsElement } from "./preset-buttons";
 import "./toggle-switch";
@@ -8,11 +8,18 @@ import "./preset-buttons";
 @customElement("user-panel")
 export class UserPanelElement extends LitElement {
 
+  _handleSignOut() {
+    this.dispatchEvent(new CustomEvent('signOut'));
+
+  }
+
+  @property() username: string = 'unnamed';
+
   render() {
     return html`
         <ul>
             <li class="header">
-                <a href="/app/profile">
+                <a href="/app/profile/${this.username}">
                     <slot name="name">Your Name</slot>
                 </a>
             </li>
@@ -31,7 +38,9 @@ export class UserPanelElement extends LitElement {
                 </preset-buttons>
             </li>
             <li>
-                <slot name="logout">Sign out</slot>
+              <a href="#" @click=${this._handleSignOut}>
+                Sign Out
+              </a>
             </li>
         </ul>
     `;

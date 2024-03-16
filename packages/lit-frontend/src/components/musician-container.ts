@@ -14,7 +14,7 @@ export class MusicianContainerElement extends LitElement {
             <div class="musician-container">
                 <section class="musician-items">
                     <musician-box
-                    link="musician.html"
+                    link="/app/profile/Kooldude47"
                     image="/images/kooldude.jpg">
                         <span slot="musician-name">Kooldude47</span>
                     </musician-box>

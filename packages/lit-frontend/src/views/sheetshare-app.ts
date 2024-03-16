@@ -6,6 +6,7 @@ import homeCSS from "/src/styles/home.css?inline";
 
 import routes from "../routes";
 
+import "../components/auth-required";
 import "../components/app-header";
 import "../components/vaadin-router";
 
@@ -13,8 +14,10 @@ import "../components/vaadin-router";
 export class SheetShareAppElement extends LitElement {
     render() {
         return html`
-        <app-header></app-header>
-        <vaadin-router .routes=${routes}> </vaadin-router>
+        <auth-required>
+            <app-header></app-header>
+            <vaadin-router .routes=${routes}> </vaadin-router>
+        </auth-required>
     `;
     }
 

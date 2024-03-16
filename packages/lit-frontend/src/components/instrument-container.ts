@@ -15,7 +15,7 @@ export class InstrumentContainerElement extends LitElement {
             <div class="instrument-container">
                 <section class="instrument-items">
                     <instrument-box
-                    link="guitar.html"
+                    link="/app/guitar"
                     icon="/icons/instruments.svg#icon-guitar"
                     image="/images/guitar.jpg">
                         <span slot="instrument-name">Guitar</span>
@@ -23,7 +23,7 @@ export class InstrumentContainerElement extends LitElement {
                 </section>
                 <section class="instrument-items">
                     <instrument-box
-                    link="piano.html"
+                    link="/app/piano"
                     icon="/icons/instruments.svg#icon-piano"
                     image="/images/piano.jpg">
                         <span slot="instrument-name">Piano</span>
@@ -31,7 +31,7 @@ export class InstrumentContainerElement extends LitElement {
                 </section>
                 <section class="instrument-items">
                     <instrument-box
-                    link="violin.html"
+                    link="/app/violin"
                     icon="/icons/instruments.svg#icon-violin"
                     image="/images/violin.jpg">
                         <span slot="instrument-name">Violin</span>

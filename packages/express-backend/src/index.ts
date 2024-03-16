@@ -3,6 +3,8 @@ import * as path from "path";
 import { PathLike } from "node:fs";
 import cors from "cors";
 import { connect } from "./mongoConnect";
+import { loginUser, registerUser } from "./auth";
+import apiRouter from "./routes/api";
 import profiles from "./profiles";
 import { Profile } from "ts-models";
 
@@ -28,36 +30,13 @@ try {
   indexHtml = path.resolve(dist, "index.html");
 }
 
+app.post("/login", loginUser);
+app.post("/signup", registerUser);
+
+app.use("/api", apiRouter);
+
 app.get("/hello", (req: Request, res: Response) => {
     res.send("Hello, World");
-});
-
-app.get("/api/profiles/:userid", (req: Request, res: Response) => {
-  const { userid } = req.params;
-
-  profiles
-    .get(userid)
-    .then((profile: Profile) => res.json(profile))
-    .catch((err) => res.status(404).end());
-});
-
-app.post("/api/profiles", (req: Request, res: Response) => {
-  const newProfile = req.body;
-
-  profiles
-    .create(newProfile)
-    .then((profile: Profile) => res.status(201).send(profile))
-    .catch((err) => res.status(500).send(err));
-});
-
-app.put("/api/profiles/:userid", (req: Request, res: Response) => {
-  const { userid } = req.params;
-  const newProfile = req.body;
-
-  profiles
-    .update(userid, newProfile)
-    .then((profile: Profile) => res.json(profile))
-    .catch((err) => res.status(404).end());
 });
 
 app.listen(port, () => {
